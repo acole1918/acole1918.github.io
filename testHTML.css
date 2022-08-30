@@ -1,0 +1,106 @@
+.plus {
+    --b: 4px; /* the thickness */
+    width: 40px; /* the size */
+    aspect-ratio: 1;
+    border: 10px solid #054C20; /* the outer space */
+    background:
+      conic-gradient(from 90deg at var(--b) var(--b),#054C20 90deg,#CBAA72 0) 
+      calc(100% + var(--b)/2) calc(100% + var(--b)/2)/
+      calc(50%  + var(--b))   calc(50%  + var(--b));
+    display: inline-block;
+    color:#CBAA72;
+  }
+  .radius {
+    border-radius: 50%;
+  }
+
+  th, td {
+      padding:10px !important;
+  }
+  th{
+      border-top:0px !important;
+      border-left:0px !important;
+      border-right:0px !important;
+  }
+  table{
+      border-collapse:collapse !important;
+  }
+  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe !important;
+    margin: 10% auto !important; /* 15% from the top and centered */
+    padding: 20px !important;
+    border: 1px solid #888 !important;
+    width: 30% !important; /* Could be more or less, depending on screen size */
+    height: 20% !important;
+    position:relative !important;
+    text-align:center !important;
+  }
+  
+  .modal-footer{
+    position: absolute !important;
+    bottom: 50px !important;
+    width:100% !important;
+    border:none  !important;
+  }
+  .player-tile{
+      width:25%;
+      border:1px solid black;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  }
+  .selected{
+    box-shadow: 0 18px 108px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  }
+  .player-header{
+      text-align:center;
+      padding:5px;
+      border-bottom: 1px solid black;
+      font-size:18px;
+  }
+  .player-body{
+      padding:0px;
+  }
+  .empty-player{
+      min-height:75px;
+      height:70%;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+      text-align:center;
+      background:lightgrey;
+      padding:0px;
+  }
+  .player-stat{
+      border:1px solid black
+  }
+  .banner{
+      width:100%;
+      font-size:24px;
+      height:24px;
+      /*display:none;*/
+      text-align:center;
+  }
+  .success{
+        color:green;
+    }
+    .error{
+        color:red;
+    }
+
+
+  

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			@import url("testHTML.css");
+		</style>
+		<title>Wildcat Tracker</title>
+	</head>
+	<script type="text/javascript" src="./html2pdf.bundle.min.js"></script>
+	<script type="text/javascript" src="./testHTML.js"></script>
+	<body>
+		<div style="width:100%;">
+			<div class="plus radius" onclick="addPlayerHandler();">
+			</div>
+			<div style="position:absolute;top:0px;right:0px">
+				<button onclick="exportButtonHandler();">Export</button>
+			</div>
+			<div id="banner" class="banner"></div>
+			<div style="width:100%;margin:20px 80px;display:flex;">
+				<div style="width:30%;padding:5px;padding-right:5%;">
+					<div style="width:100%;border:1px solid black;display:flex; flex-wrap:wrap;justify-content:center;align-content:center;margin-bottom:10px;">
+						<div class="timeoutContainer" style="width:49%;text-align:center;justify-content:center;">
+							<p>Timeout</p>
+							<button style="display:inline-block;" class="timeoutButton">-</button>
+							<p style="display:inline-block;padding-right:5px;padding-left:5px;">2</p>
+							<button style="display:inline-block;" class="timeoutButton">+</button>
+						</div>
+						<div class="substitutionContainer" style="width:49%;text-align:center;justify-content:center;">
+							<p>Substitutions</p>
+							<button style="display:inline-block;" class="substitutionButton">-</button>
+							<p style="display:inline-block;padding-right:5px;padding-left:5px;">21</p>
+							<button style="display:inline-block;" class="substitutionButton">+</button>
+						</div>
+					</div>
+					<table border="1" style="width:100%;" id="allPlayerTable">
+						<thead>
+							<tr>
+								<th>
+									Name
+								</th>
+								<th>
+									Number
+								</th>
+								<th>
+									Current Position
+								</th>
+								<th>
+									Libero
+								</th>
+							</tr>
+						</thead>
+						<tbody id="tableBody">
+						</tbody>
+					</table>
+				</div>
+				<div style="width:60%;padding:5px;padding-left:20px;padding-right:20px;">
+					<div style="display:flex;flex-wrap:wrap;width:100%;justify-content:space-between;">
+						<div class="player-tile" id="player1" tabindex="1">
+							<div class="player-header" id="pHead1">No Assigned Player</div>
+							<div class="empty-player" id="pBody1">
+								<div class="empty">No Stats Available</div>
+							</div>
+						</div>
+						<div class="player-tile" id="player2" tabindex="2">
+							<div class="player-header" id="pHead2">No Assigned Player</div>
+							<div class="empty-player" id="pBody2">
+								<div class="empty">No Stats Available</div>
+							</div>
+						</div>
+						<div class="player-tile" id="player3" tabindex="3">
+							<div class="player-header" id="pHead3">No Assigned Player</div>
+							<div class="empty-player" id="pBody3">
+								<div class="empty">No Stats Available</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+					<div style="display:flex;flex-wrap:wrap;width:100%;justify-content:space-between;">
+						<div class="player-tile" id="player4" tabindex="4">
+							<div class="player-header" id="pHead4">No Assigned Player</div>
+							<div class="empty-player" id="pBody4">
+								<div class="empty">No Stats Available</div>
+							</div>
+						</div>
+						<div class="player-tile" id="player5" tabindex="5">
+							<div class="player-header" id="pHead5">No Assigned Player</div>
+							<div class="empty-player" id="pBody5">
+								<div class="empty">No Stats Available</div>
+							</div>
+						</div>	
+						<div class="player-tile" id="player6" tabindex="6">
+							<div class="player-header" id="pHead6">No Assigned Player</div>
+							<div class="empty-player" id="pBody6">
+								<div class="empty">No Stats Available</div>
+							</div>
+						</div>
+					</div>
+					<div style="display:flex;width:100%;justify-content:center;padding-top:20px;">
+						<button onclick="handleRotation();">&#8635;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<p style="font-size:20px;">Enter new player information</p>
+				<div style="display:flex !important;justify-content:center !important;width:100% !important;flex-wrap:wrap;">
+					<div style="width:40% !important;">
+						<label for="pName">Player name:</label>
+						<input type="text" id="pName" name="pName">
+					</div>
+					<div style="width:40% !important;">
+						<label for="pNum">Player number:</label>
+						<input type="text" id="pNum" name="pNum">
+					</div>
+					<div style="width:40% !important;padding-top:30px;">
+						<label for="libero">Libero:</label>
+						<input type="checkbox" id="libero" name="libero">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button style="position:absolute;left:20px;" onclick="cancelPlayerHandler();">Cancel</button>
+					<button style="position:absolute;right:60px;" onclick="savePlayerHandler();">Save</button>
+				</div>
+			</div>
+		</div>
+		<div id="myModal2" class="modal">
+			<div class="modal-content">
+				<p style="font-size:20px;">Export Settings</p>
+				<div style="display:flex !important;justify-content:center !important;width:100% !important;flex-wrap:wrap;">
+					<div style="width:40% !important;">
+						<label for="oName">Opponent name:</label>
+						<input type="text" id="oName" name="oName">
+					</div>
+					<div style="width:40% !important;">
+						<label for="mNum">Match number:</label>
+						<input type="text" id="mNum" name="mNum">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button style="position:absolute;left:20px;" onclick="cancelExportHandler();">Cancel</button>
+					<button style="position:absolute;right:60px;" onclick="saveCurrentStats();">Export</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
